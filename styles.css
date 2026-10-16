@@ -126,7 +126,7 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
   .site-nav a:not(.nav-contact) { display: none; }
   .site-nav .nav-contact { font-size: .68rem; }
   .scene { inset: 76px 0 90px; align-items: flex-start; padding-top: min(19svh,170px); }
-  .scene h1,.scene h2 { font-size: clamp(3.5rem,13vw,5.7rem); }
+  .scene h1,.scene h2 { font-size: clamp(3rem,11.8vw,5.5rem); letter-spacing: 0; }
   .scene-copy { max-width: 100%; }
   .kicker { margin-bottom: 24px; font-size: .66rem; }
   .scene-description { max-width: 320px; margin-top: 24px; font-size: 1rem; }
