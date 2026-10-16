@@ -1,5 +1,9 @@
 # nathank.me
 
-Homepage for nathank.me. A single page (`index.html`) with links to my projects.
+Personal portfolio published through GitHub Pages at [nathank.me](https://nathank.me/).
 
-To add a project, copy the `<a class="button" ...>` line in `index.html` and change the link and label.
+- `index.html` contains the page content and project link.
+- `styles.css` contains the layout and responsive styles.
+- `motion.js` draws the seeded particle field and controls the scroll chapters. The page provides a static layout when reduced motion is preferred or JavaScript is unavailable.
+
+To preview locally, run `python -m http.server` from this directory and open the address it prints.
