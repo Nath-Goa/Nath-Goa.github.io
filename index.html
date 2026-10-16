@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://nathank.me/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2307110e'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='16' font-weight='800' fill='%23d8fb75' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="./styles.css">
-  <noscript><style>.experience{height:auto}.stage{position:relative;height:auto;padding:110px 0 40px}#motion-canvas,.scroll-note,.chapter-index{display:none}.scene{position:relative;inset:auto;display:block;min-height:55vh;padding:80px 0;opacity:1}.reveal-on-scroll{opacity:1;transform:none}</style></noscript>
+  <noscript><style>.experience{height:auto}.stage{position:relative;height:auto;padding:110px 0 40px}#motion-canvas,.section-nav{display:none}.scene{position:relative;inset:auto;display:block;min-height:55vh;padding:80px 0;opacity:1}.reveal-on-scroll{opacity:1;transform:none}</style></noscript>
   <script src="./motion.js" defer></script>
   <title>Nathan Kumtakar — Front-end Developer</title>
 </head>
@@ -60,8 +60,6 @@
           </div>
         </div>
 
-        <a class="scroll-note" href="#work">Scroll to explore <svg aria-hidden="true" viewBox="0 0 16 24" fill="none"><path d="M8 1v20m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="1.5"/></svg></a>
-        <div class="chapter-index" aria-hidden="true"><span class="chapter-number">01</span><span class="chapter-track"><span class="chapter-fill"></span></span><span>03</span></div>
       </div>
     </section>
 
@@ -76,7 +74,7 @@
           <div class="project-info">
             <span class="project-number">01 / Landing page concept</span>
             <h3>eSIM<br>Wholesale.</h3>
-            <span class="project-intent">Made simple on purpose</span>
+            <span class="project-intent">Made simple for <em>clarity</em></span>
             <p>An intentionally animation-free landing page concept that keeps the wholesale eSIM offer clear and easy to explore.</p>
             <span class="project-action">Explore project <b aria-hidden="true">↗</b></span>
           </div>
@@ -110,5 +108,10 @@
       </div>
     </section>
   </main>
+  <nav class="section-nav" aria-label="Page section controls">
+    <span class="section-nav-info"><span class="section-nav-name">Intro</span><span class="section-nav-count"><span class="section-nav-number">01</span> / 05</span></span>
+    <button class="section-nav-button section-nav-up" type="button" aria-label="Previous section" disabled><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 20V4m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="section-nav-button section-nav-down" type="button" aria-label="Next section"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 4v16m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </nav>
 </body>
 </html>

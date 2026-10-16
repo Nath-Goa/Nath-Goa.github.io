@@ -15,13 +15,81 @@ if ('IntersectionObserver' in window && !reducedMotion) {
   revealItems.forEach(item => item.classList.add('is-visible'));
 }
 
+const sectionNav = document.querySelector('.section-nav');
+const upButton = sectionNav.querySelector('.section-nav-up');
+const downButton = sectionNav.querySelector('.section-nav-down');
+const sectionName = sectionNav.querySelector('.section-nav-name');
+const sectionNumber = sectionNav.querySelector('.section-nav-number');
+const chapterNames = ['Intro', 'Imagine', 'Create', 'Work', 'About'];
+const experienceSection = document.querySelector('.experience');
+let selectedChapter = null;
+
+function documentTop(element) {
+  return window.scrollY + element.getBoundingClientRect().top;
+}
+
+function chapterStops() {
+  const start = documentTop(experienceSection);
+  const distance = Math.max(0, experienceSection.offsetHeight - window.innerHeight);
+  return [
+    start,
+    reducedMotion ? documentTop(document.querySelector('.scene--middle')) : start + distance * .5,
+    reducedMotion ? documentTop(document.querySelector('.scene--final')) : start + distance * .94,
+    documentTop(document.querySelector('#work')),
+    documentTop(document.querySelector('#about'))
+  ];
+}
+
+function currentChapter(stops) {
+  const position = window.scrollY;
+  if (position >= stops[4] - 4) return 4;
+  if (position >= stops[3] - 4) return 3;
+  if (reducedMotion) {
+    if (position >= stops[2] - 4) return 2;
+    if (position >= stops[1] - 4) return 1;
+    return 0;
+  }
+  const travel = Math.max(1, experienceSection.offsetHeight - window.innerHeight);
+  if (position >= stops[0] + travel * .69) return 2;
+  if (position >= stops[0] + travel * .31) return 1;
+  return 0;
+}
+
+function updateSectionNav() {
+  const stops = chapterStops();
+  if (selectedChapter !== null && Math.abs(window.scrollY - stops[selectedChapter]) < 5) selectedChapter = null;
+  const index = selectedChapter ?? currentChapter(stops);
+  sectionName.textContent = chapterNames[index];
+  sectionNumber.textContent = String(index + 1).padStart(2, '0');
+  upButton.disabled = index === 0 && window.scrollY < 20;
+  downButton.disabled = index === chapterNames.length - 1;
+  upButton.setAttribute('aria-label', index === 0 ? 'Back to introduction' : `Go up to ${chapterNames[index - 1]}`);
+  downButton.setAttribute('aria-label', index === chapterNames.length - 1 ? 'End of page' : `Go down to ${chapterNames[index + 1]}`);
+}
+
+function moveChapter(direction) {
+  const stops = chapterStops();
+  const index = selectedChapter ?? currentChapter(stops);
+  const next = Math.max(0, Math.min(chapterNames.length - 1, index + direction));
+  if (next === index && Math.abs(window.scrollY - stops[next]) < 5) return;
+  selectedChapter = next;
+  window.scrollTo({ top: stops[next], behavior: reducedMotion ? 'auto' : 'smooth' });
+  updateSectionNav();
+}
+
+upButton.addEventListener('click', () => moveChapter(-1));
+downButton.addEventListener('click', () => moveChapter(1));
+window.addEventListener('scroll', updateSectionNav, { passive: true });
+window.addEventListener('resize', updateSectionNav, { passive: true });
+window.addEventListener('wheel', () => { selectedChapter = null; }, { passive: true });
+window.addEventListener('touchstart', () => { selectedChapter = null; }, { passive: true });
+updateSectionNav();
+
 if (!reducedMotion) {
   const experience = document.querySelector('.experience');
   const canvas = document.querySelector('#motion-canvas');
   const context = canvas.getContext('2d');
   const scenes = [...document.querySelectorAll('.scene')];
-  const progressFill = document.querySelector('.chapter-fill');
-  const chapterNumber = document.querySelector('.chapter-number');
   const mobile = () => window.innerWidth < 650;
   const clamp = value => Math.min(1, Math.max(0, value));
   const mix = (a, b, amount) => a + (b - a) * amount;
@@ -84,8 +152,6 @@ if (!reducedMotion) {
       scene.inert = hidden;
       scene.setAttribute('aria-hidden', hidden ? 'true' : 'false');
     });
-    progressFill.style.width = `${(value * 100).toFixed(1)}%`;
-    chapterNumber.textContent = value < .34 ? '01' : value < .69 ? '02' : '03';
   }
 
   function draw(time, value) {

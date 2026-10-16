@@ -40,9 +40,9 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
 .scene-copy { max-width: 840px; }
 .kicker { display: flex; align-items: center; gap: 14px; margin: 0 0 31px; color: var(--acid); font-size: .74rem; font-weight: 750; letter-spacing: .2em; text-transform: uppercase; }
 .kicker::before { content: ""; width: 32px; height: 1px; background: currentColor; }
-.scene h1, .scene h2 { margin: 0; font-size: clamp(4.5rem,8.5vw,9rem); font-weight: 780; letter-spacing: -.092em; line-height: .91; }
+.scene h1, .scene h2 { margin: 0; font-size: clamp(4.5rem,8.5vw,9rem); font-weight: 780; letter-spacing: .005em; line-height: .91; }
 .scene h1 span, .scene h2 span { display: block; }
-.scene em { color: var(--acid); font-family: Georgia, serif; font-weight: 400; letter-spacing: -.085em; }
+.scene em { color: var(--acid); font-family: Georgia, serif; font-weight: 400; letter-spacing: .005em; }
 .scene-description { max-width: 460px; margin: 32px 0 0; color: #c4d2c5; font-size: clamp(1.05rem,1.4vw,1.24rem); line-height: 1.65; }
 .scene--middle .scene-copy { margin-left: 7%; }
 .scene--middle h2 { max-width: 950px; }
@@ -51,13 +51,14 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
 .stage-cta { display: inline-flex; align-items: center; gap: 28px; margin-top: 32px; padding: 17px 22px; border-radius: 100px; background: var(--acid); color: var(--dark); font-size: .9rem; font-weight: 800; text-decoration: none; pointer-events: auto; transition: transform .3s ease, box-shadow .3s ease; }
 .stage-cta:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(216,251,117,.22); }
 .stage-cta span { font-size: 1.3rem; line-height: 0; }
-.chapter-index { position: absolute; right: max(48px,calc((100% - 1400px)/2)); bottom: 48px; z-index: 5; display: flex; align-items: center; gap: 17px; color: #c6d4c7; font-size: .72rem; font-weight: 700; letter-spacing: .18em; }
-.chapter-track { display: block; width: 90px; height: 1px; background: rgba(234,247,228,.25); }
-.chapter-fill { display: block; height: 100%; width: 0; background: var(--acid); }
-.scroll-note { position: absolute; left: max(48px,calc((100% - 1400px)/2)); bottom: 45px; z-index: 5; display: flex; align-items: center; gap: 13px; color: #b3c4b4; font-size: .7rem; font-weight: 700; letter-spacing: .19em; text-decoration: none; text-transform: uppercase; }
-.scroll-note:hover { color: var(--acid); }
-.scroll-note svg { width: 15px; height: 22px; animation: nudge 2s ease-in-out infinite; }
-@keyframes nudge { 50% { transform: translateY(6px); } }
+.section-nav { position: fixed; right: max(28px,calc((100% - 1400px)/2)); bottom: 28px; z-index: 25; display: flex; align-items: stretch; overflow: hidden; border: 1px solid rgba(216,251,117,.28); border-radius: 100px; background: rgba(7,22,15,.88); color: var(--white); box-shadow: 0 16px 45px rgba(3,17,10,.28); backdrop-filter: blur(18px); }
+.section-nav-info { display: flex; flex-direction: column; justify-content: center; min-width: 112px; padding: 10px 20px; }
+.section-nav-name { color: var(--acid); font-size: .65rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.section-nav-count { margin-top: 3px; color: #b8cbb9; font-size: .67rem; font-weight: 700; letter-spacing: .16em; }
+.section-nav-button { display: grid; place-items: center; width: 52px; min-height: 56px; padding: 0; border: 0; border-left: 1px solid rgba(216,251,117,.16); background: transparent; color: var(--white); cursor: pointer; transition: background .25s ease,color .25s ease; }
+.section-nav-button svg { width: 20px; height: 20px; }
+.section-nav-button:hover:not(:disabled) { background: var(--acid); color: var(--dark); }
+.section-nav-button:disabled { color: #66806e; cursor: default; }
 
 /* The next chapter brings the moving signal into a concrete project. */
 .work-section { position: relative; z-index: 2; min-height: 100svh; padding: clamp(90px,10vw,150px) 0 clamp(100px,12vw,170px); background: var(--paper); color: var(--ink); }
@@ -71,7 +72,8 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
 .project-info { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; padding: clamp(34px,5vw,74px); }
 .project-number { color: var(--acid); font-size: .76rem; font-weight: 750; letter-spacing: .19em; text-transform: uppercase; }
 .project-info h3 { max-width: 570px; margin: auto 0 28px; font-size: clamp(2.5rem,5vw,5.8rem); letter-spacing: -.075em; line-height: .99; }
-.project-intent { display: inline-flex; margin-bottom: 18px; padding: 9px 13px; border: 1px solid rgba(216,251,117,.45); border-radius: 100px; color: var(--acid); font-size: .67rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.project-intent { display: inline-flex; align-items: baseline; gap: 5px; margin-bottom: 18px; padding: 9px 13px; border: 1px solid rgba(216,251,117,.45); border-radius: 100px; color: var(--acid); font-size: .67rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.project-intent em { font-family: Georgia, serif; font-size: 1.45em; font-weight: 400; letter-spacing: -.04em; line-height: .8; text-transform: none; }
 .project-info p { max-width: 390px; margin: 0; color: #c1d0c3; font-size: 1.05rem; line-height: 1.6; }
 .project-action { display: inline-flex; align-items: center; gap: 22px; margin-top: 45px; color: var(--acid); font-size: .8rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
 .project-action b { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid rgba(216,251,117,.5); border-radius: 50%; font-size: 1.35rem; font-weight: 400; transition: transform .3s ease,background .3s ease,color .3s ease; }
@@ -113,8 +115,7 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
   .project-link { min-height: 560px; }
   .work-intro { align-items: start; flex-direction: column; }
   .about-grid { gap: 5vw; }
-  .scroll-note { left: 24px; }
-  .chapter-index { right: 24px; }
+  .section-nav { right: 24px; }
 }
 
 @media (max-width: 600px) {
@@ -126,14 +127,18 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
   .site-nav a:not(.nav-contact) { display: none; }
   .site-nav .nav-contact { font-size: .68rem; }
   .scene { inset: 76px 0 90px; align-items: flex-start; padding-top: min(19svh,170px); }
-  .scene h1,.scene h2 { font-size: clamp(3rem,11.8vw,5.5rem); letter-spacing: 0; }
+  .scene h1,.scene h2 { font-size: clamp(3rem,11.8vw,5.5rem); letter-spacing: .015em; }
+  .scene em { letter-spacing: .015em; }
   .scene-copy { max-width: 100%; }
   .kicker { margin-bottom: 24px; font-size: .66rem; }
   .scene-description { max-width: 320px; margin-top: 24px; font-size: 1rem; }
   .scene--middle,.scene--final { padding-top: min(22svh,190px); }
-  .scroll-note { bottom: 28px; left: 18px; font-size: .62rem; }
-  .chapter-index { bottom: 32px; right: 18px; gap: 10px; font-size: .62rem; }
-  .chapter-track { width: 38px; }
+  .section-nav { right: 18px; bottom: 18px; }
+  .section-nav-info { min-width: 83px; padding: 8px 12px; }
+  .section-nav-name { font-size: .55rem; }
+  .section-nav-count { font-size: .58rem; }
+  .section-nav-button { width: 40px; min-height: 46px; }
+  .section-nav-button svg { width: 18px; height: 18px; }
   .work-section { padding-block: 86px 100px; }
   .section-topline { font-size: .65rem; }
   .work-intro { margin: 60px 0 36px; }
@@ -151,11 +156,15 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
   .site-footer { flex-direction: column; margin-top: 100px; }
 }
 
+@media (max-width: 350px) {
+  .scene--intro h1 { font-size: 2.625rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .experience { height: auto; }
   .stage { position: relative; height: auto; min-height: 0; padding: 110px 0 40px; }
-  #motion-canvas,.scroll-note,.chapter-index { display: none; }
+  #motion-canvas { display: none; }
   .site-header { top: 0; }
   .scene { position: relative; inset: auto; display: block; min-height: 55vh; padding: 80px 0; opacity: 1 !important; transform: none !important; }
   .scene--intro { padding-top: 120px; }
