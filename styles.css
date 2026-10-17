@@ -90,6 +90,25 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
 .esim-bottom { display: flex; justify-content: space-between; align-items: end; font-size: .7rem; letter-spacing: .14em; }
 .esim-bottom strong { font-size: 1.65rem; letter-spacing: -.06em; }
 
+/* The second project mirrors the first: art on the left, in the restaurant's own colours. */
+.project-link + .project-link { margin-top: clamp(28px,4vw,48px); }
+.project-link--reverse { grid-template-columns: 1.1fr .9fr; }
+.project-link--reverse .project-art { order: -1; }
+.project-art--kitchen { background: radial-gradient(circle at 55% 44%,#f8d98a 0%,#e5a73a 36%,#b8582c 74%,#8a2f2c 100%); }
+.project-art--kitchen::before,.project-art--kitchen::after { border-color: rgba(255,244,214,.4); }
+.plate-arc { position: absolute; width: 130%; aspect-ratio: 1; border: 1px dashed rgba(255,240,205,.3); border-radius: 50%; transform: rotateX(60deg) rotate(20deg); }
+.menu-card { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: space-between; width: min(44%,270px); aspect-ratio: .78; padding: 24px; border: 1px solid rgba(255,248,232,.6); border-radius: 22px; background: linear-gradient(160deg,#fbf6ec,#f1e6d1 80%); color: #2b1b17; box-shadow: -25px 32px 70px rgba(74,24,14,.42); container-type: inline-size; transform: perspective(900px) rotateY(17deg) rotateZ(9deg); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.project-link:hover .menu-card { transform: perspective(900px) rotateY(7deg) rotateZ(4deg) translateY(-10px); }
+.menu-card-top { display: flex; justify-content: space-between; align-items: start; gap: 8px; color: #8a1f4f; font-size: 6.2cqw; font-weight: 850; letter-spacing: .1em; white-space: nowrap; }
+.menu-card-top i { display: block; flex: none; width: 11.5cqw; height: 11.5cqw; border: 1px solid #8a1f4f; border-radius: 50%; background: radial-gradient(circle,#e9a92b 0 38%,transparent 40%); }
+.menu-card-tiles { display: block; height: 22px; border-block: 1px solid rgba(15,106,110,.55); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M11 3.5 18.5 11 11 18.5 3.5 11Z' fill='none' stroke='%230F6A6E' stroke-width='1.4'/%3E%3Cpath d='M11 7 15 11 11 15 7 11Z' fill='%230F6A6E' fill-opacity='.18'/%3E%3Ccircle cx='11' cy='11' r='2.2' fill='%23E9A92B'/%3E%3Cpath d='M0 0h22v22H0z' fill='none' stroke='%230F6A6E' stroke-opacity='.35'/%3E%3C/svg%3E") space no-repeat center / 22px 22px; }
+.menu-card-dishes { display: grid; gap: 4cqw; font-size: 5.4cqw; font-weight: 650; }
+.menu-card-dishes span { display: flex; align-items: baseline; gap: 2.2cqw; white-space: nowrap; }
+.menu-card-dishes span::after { content: ""; order: 1; flex: 1; border-bottom: 1px dotted rgba(43,27,23,.4); }
+.menu-card-dishes b { order: 2; color: #8a1f4f; font-weight: 800; }
+.menu-card-bottom { display: flex; justify-content: space-between; align-items: end; gap: 8px; color: #5a463c; font-size: 4.5cqw; letter-spacing: .14em; white-space: nowrap; }
+.menu-card-bottom strong { color: #0f6a6e; font-family: Georgia, serif; font-size: 12cqw; letter-spacing: -.02em; }
+
 .about-section { position: relative; padding: clamp(110px,13vw,190px) 0 100px; background: radial-gradient(circle at 78% 20%,#1b3b28,transparent 48%),var(--dark); }
 .about-section .section-topline { border-color: rgba(233,246,229,.22); color: #9db69f; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; margin-top: 85px; }
@@ -144,11 +163,13 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
   .work-intro { margin: 60px 0 36px; }
   .work-intro h2 { font-size: clamp(3.6rem,13vw,5.3rem); }
   .project-link { grid-template-columns: 1fr; min-height: 0; }
+  .project-link--reverse .project-art { order: 0; }
   .project-info { min-height: 390px; padding: 34px; }
   .project-info h3 { margin-top: 65px; font-size: clamp(2.7rem,10vw,4rem); }
   .project-action { margin-top: 28px; }
   .project-art { min-height: 360px; }
   .esim-card { width: min(58%,275px); }
+  .menu-card { width: min(62%,240px); padding: 18px; }
   .about-section { padding-top: 100px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 68px; }
   .about-grid h2 { font-size: clamp(3.9rem,13vw,5.5rem); }
