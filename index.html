@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://nathank.me/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2307110e'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='16' font-weight='800' fill='%23d8fb75' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="./styles.css">
-  <noscript><style>.experience{height:auto}.stage{position:relative;height:auto;padding:110px 0 40px}#motion-canvas,.section-nav{display:none}.scene{position:relative;inset:auto;display:block;min-height:55vh;padding:80px 0;opacity:1}.reveal-on-scroll{opacity:1;transform:none}</style></noscript>
+  <noscript><style>.experience{height:auto;content-visibility:visible}.stage{position:relative;height:auto;padding:110px 0 40px}#motion-canvas,.section-nav{display:none}.scene{position:relative;inset:auto;display:block;min-height:55vh;padding:80px 0;opacity:1}.reveal-on-scroll{opacity:1;transform:none}</style></noscript>
   <script src="./motion.js" defer></script>
   <title>Nathan Kumtakar — Front-end Developer</title>
 </head>
@@ -20,7 +20,7 @@
         <canvas id="motion-canvas" aria-hidden="true"></canvas>
         <div class="stage-grid" aria-hidden="true"></div>
         <header class="site-header wrap">
-          <a class="logo" href="#top" aria-label="Nathan Kumtakar, back to top">NK<span>.</span></a>
+          <a class="logo" href="#top" aria-label="NK, Nathan Kumtakar, back to top">NK<span>.</span></a>
           <nav class="site-nav" aria-label="Main navigation">
             <a href="#work">Work</a>
             <a href="#about">About</a>
@@ -87,7 +87,7 @@
             </div>
           </div>
         </a>
-        <a class="project-link project-link--reverse reveal-on-scroll" href="/restaurant-demo/" aria-label="View Goan Restaurant Website Demo">
+        <a class="project-link project-link--reverse reveal-on-scroll" href="/restaurant-demo/" aria-label="View Goan Kitchen Restaurant Website Demo">
           <div class="project-info">
             <span class="project-number">02 / Restaurant website</span>
             <h3>Goan<br>Kitchen.</h3>
@@ -130,6 +130,30 @@
             </div>
           </div>
         </a>
+        <a class="project-link project-link--reverse reveal-on-scroll" href="/dentist-demo/" aria-label="View Bandra Dentist Website Demo">
+          <div class="project-info">
+            <span class="project-number">04 / Clinic website</span>
+            <h3>Bandra<br>Dentist.</h3>
+            <span class="project-intent">Made calm for <em>patients</em></span>
+            <p>A website for a dental clinic in Mumbai, with clear prices, a walk-through of your first visit, and easy online booking.</p>
+            <span class="project-action">Explore project <b aria-hidden="true">↗</b></span>
+          </div>
+          <div class="project-art project-art--clinic" aria-hidden="true">
+            <div class="clinic-arc"></div>
+            <div class="clinic-arches"></div>
+            <div class="clinic-card">
+              <span class="clinic-card-mark"></span>
+              <strong>Verandah</strong>
+              <span class="clinic-card-place">DENTAL · BANDRA WEST</span>
+              <span class="clinic-card-rows">
+                <span><i>Day</i><b><em>Tuesday</em></b></span>
+                <span><i>Time</i><b>7:30 pm</b></span>
+                <span><i>With</i><b>Dr Rodricks</b></span>
+              </span>
+              <span class="clinic-card-foot">Hill Road · Open till 9 pm</span>
+            </div>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -153,7 +177,7 @@
   </main>
   <nav class="section-nav" aria-label="Page section controls">
     <span class="section-nav-info"><span class="section-nav-name">Intro</span><span class="section-nav-count"><span class="section-nav-number">01</span> / 05</span></span>
-    <button class="section-nav-button section-nav-up" type="button" aria-label="Previous section" disabled><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 20V4m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="section-nav-button section-nav-up" type="button" aria-label="Previous section" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 20V4m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     <button class="section-nav-button section-nav-down" type="button" aria-label="Next section"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 4v16m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   </nav>
 </body>
