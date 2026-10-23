@@ -14,6 +14,8 @@ html { scroll-behavior: smooth; }
 body { margin: 0; overflow-x: hidden; background: var(--dark); color: var(--white); font-family: "Segoe UI", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 a { color: inherit; }
 a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
+/* On the light work section the acid ring would vanish, so it is ink there */
+.work-section a:focus-visible { outline-color: var(--ink); }
 ::selection { background: var(--acid); color: var(--dark); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .skip-link { position: fixed; top: -70px; left: 24px; z-index: 30; padding: 12px 18px; background: var(--acid); color: var(--dark); }
@@ -109,6 +111,22 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
 .menu-card-bottom { display: flex; justify-content: space-between; align-items: end; gap: 8px; color: #5a463c; font-size: 4.5cqw; letter-spacing: .14em; white-space: nowrap; }
 .menu-card-bottom strong { color: #0f6a6e; font-family: Georgia, serif; font-size: 12cqw; letter-spacing: -.02em; }
 
+/* The third project returns to art on the right: the coffee page's monsoon blue, with rain, and its kraft bag. */
+.project-art--coffee { background: repeating-linear-gradient(104deg,transparent 0 26px,rgba(234,245,249,.07) 26px 27px),radial-gradient(circle at 45% 44%,#cfdcdc 0%,#86a2ad 34%,#3e5c6e 72%,#263d4c 100%); }
+.project-art--coffee::before,.project-art--coffee::after { border-color: rgba(238,247,250,.38); }
+.rain-arc { position: absolute; width: 130%; aspect-ratio: 1; border: 1px dashed rgba(236,246,250,.28); border-radius: 50%; transform: rotateX(60deg) rotate(-12deg); }
+.coffee-bag { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; width: min(44%,250px); aspect-ratio: .74; border-radius: 7px 7px 18px 18px; background: linear-gradient(100deg,transparent 32%,rgba(255,246,226,.16) 46%,transparent 60%),linear-gradient(90deg,#b8976a 0 7%,#c9a878 7% 93%,#b5946a 93%); color: #1e120d; box-shadow: 25px 32px 70px rgba(10,30,40,.5); container-type: inline-size; transform: perspective(900px) rotateY(-17deg) rotateZ(-9deg); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.project-link:hover .coffee-bag { transform: perspective(900px) rotateY(-7deg) rotateZ(-4deg) translateY(-10px); }
+.coffee-bag::before { content: ""; position: absolute; inset: 0 0 auto; height: 10cqw; border-radius: 7px 7px 0 0; background: repeating-linear-gradient(90deg,#ad8c5f 0 2cqw,#c2a175 2cqw 4cqw); }
+.coffee-bag::after { content: ""; position: absolute; inset: 13cqw 5cqw auto; border-top: 1px dashed rgba(94,72,56,.55); }
+.coffee-bag-valve { position: absolute; top: 19cqw; right: 13cqw; width: 9cqw; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,#7e6440 0 32%,#a3845a 36%); }
+.coffee-bag-label { display: flex; flex-direction: column; align-items: center; width: 74cqw; margin: 0 auto 13cqw; padding: 0 5cqw 6cqw; overflow: hidden; border-radius: 4cqw; background: #f3e6d3; text-align: center; transform: rotate(-3deg); }
+.coffee-bag-label::before { content: ""; align-self: stretch; height: 9cqw; margin: 0 -5cqw 7cqw; background: #6b3f22; }
+.coffee-bag-label strong { font-family: Georgia, serif; font-size: 15cqw; font-weight: 700; letter-spacing: -.03em; line-height: 1; }
+.coffee-bag-lot { margin-top: 3cqw; color: #b3261e; font-size: 5.2cqw; font-weight: 800; letter-spacing: .22em; white-space: nowrap; }
+.coffee-bag-origin { margin-top: 4cqw; padding-top: 4cqw; border-top: 1px solid #cdb9a2; color: #5e4838; font-size: 4.8cqw; font-weight: 600; line-height: 1.3; }
+.coffee-bag-spec { margin-top: 3cqw; font-size: 4.8cqw; font-weight: 800; white-space: nowrap; }
+
 .about-section { position: relative; padding: clamp(110px,13vw,190px) 0 100px; background: radial-gradient(circle at 78% 20%,#1b3b28,transparent 48%),var(--dark); }
 .about-section .section-topline { border-color: rgba(233,246,229,.22); color: #9db69f; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; margin-top: 85px; }
@@ -170,6 +188,7 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
   .project-art { min-height: 360px; }
   .esim-card { width: min(58%,275px); }
   .menu-card { width: min(62%,240px); padding: 18px; }
+  .coffee-bag { width: min(50%,210px); }
   .about-section { padding-top: 100px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 68px; }
   .about-grid h2 { font-size: clamp(3.9rem,13vw,5.5rem); }
@@ -179,6 +198,11 @@ a:focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
 
 @media (max-width: 350px) {
   .scene--intro h1 { font-size: 2.625rem; }
+}
+
+/* High contrast drops background colours, so the coffee bag keeps an outline */
+@media (forced-colors: active) {
+  .coffee-bag,.coffee-bag-label { border: 1px solid CanvasText; }
 }
 
 @media (prefers-reduced-motion: reduce) {
